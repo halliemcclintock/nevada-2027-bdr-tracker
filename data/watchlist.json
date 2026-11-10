@@ -1,0 +1,137 @@
+[
+  {
+    "term": "prevailing wage",
+    "tier": "Core construction",
+    "patterns": "prevailing wage"
+  },
+  {
+    "term": "public works",
+    "tier": "Core construction",
+    "patterns": "public works"
+  },
+  {
+    "term": "CMAR / construction manager",
+    "tier": "Core construction",
+    "patterns": "construction manager at risk; cmar; construction manager"
+  },
+  {
+    "term": "design-build",
+    "tier": "Core construction",
+    "patterns": "design-build; design build"
+  },
+  {
+    "term": "procurement / bidding",
+    "tier": "Core construction",
+    "patterns": "procurement; bid preference; public bid; bidding"
+  },
+  {
+    "term": "contractor licensing / notices",
+    "tier": "Core construction",
+    "patterns": "contractor; contractors' board"
+  },
+  {
+    "term": "construction defect",
+    "tier": "Core construction",
+    "patterns": "construction defect"
+  },
+  {
+    "term": "liens / retainage / payment",
+    "tier": "Core construction",
+    "patterns": "mechanic's lien; liens; lien; retainage; prompt pay"
+  },
+  {
+    "term": "off-site fabrication",
+    "tier": "Core construction",
+    "patterns": "fabrication"
+  },
+  {
+    "term": "apprenticeship / workforce",
+    "tier": "Core construction",
+    "patterns": "apprentice; workforce"
+  },
+  {
+    "term": "jobsite safety / OSHA / heat",
+    "tier": "Core construction",
+    "patterns": "osha; occupational safety; heat illness; jobsite; air monitoring; air quality"
+  },
+  {
+    "term": "building / energy codes",
+    "tier": "Core construction",
+    "patterns": "building code; energy code"
+  },
+  {
+    "term": "impact fees / development",
+    "tier": "Core construction",
+    "patterns": "impact fee; development approval; permitted"
+  },
+  {
+    "term": "tax abatements / incentives",
+    "tier": "Core construction",
+    "patterns": "abatement; incentive"
+  },
+  {
+    "term": "data centers",
+    "tier": "Core construction",
+    "patterns": "data center"
+  },
+  {
+    "term": "water / groundwater",
+    "tier": "Core construction",
+    "patterns": "groundwater; water right; acre-foot"
+  },
+  {
+    "term": "school / campus construction",
+    "tier": "Core construction",
+    "patterns": "school construction; capital improvement; campus"
+  },
+  {
+    "term": "housing / multifamily",
+    "tier": "Core construction",
+    "patterns": "multifamily; housing; home purchase"
+  },
+  {
+    "term": "Burke market sectors",
+    "tier": "Core construction",
+    "patterns": "hospital; hotel; resort; venue; university; mixed-use; government facility"
+  },
+  {
+    "term": "paid leave",
+    "tier": "Business-wide",
+    "patterns": "paid leave; family and medical leave; qualifying leave"
+  },
+  {
+    "term": "labor / unions",
+    "tier": "Business-wide",
+    "patterns": "right to work; union; labor organization; bargaining"
+  },
+  {
+    "term": "employment liability",
+    "tier": "Business-wide",
+    "patterns": "bullying; retaliation; discrimination; civil suit"
+  },
+  {
+    "term": "payroll / wage records",
+    "tier": "Business-wide",
+    "patterns": "payroll; wage; work records"
+  },
+  {
+    "term": "employee benefits",
+    "tier": "Business-wide",
+    "patterns": "group plan; benefits; prior authorization; fertility"
+  },
+  {
+    "term": "new taxes",
+    "tier": "Business-wide",
+    "patterns": "commerce tax; new tax; tax on"
+  },
+  {
+    "term": "landlord / tenant",
+    "tier": "Business-wide",
+    "patterns": "eviction; landlord; security deposit"
+  },
+  {
+    "term": "antitrust / penalties",
+    "tier": "Business-wide",
+    "patterns": "antitrust; civil penalty"
+  }
+]
