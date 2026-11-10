@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8fa">
+<title>Nevada 2027 BDR Tracker | Burke Construction Group</title>
+<style>
+:root{color-scheme:light dark;--bg:#f6f7f9;--surface:#fff;--ink:#1f2833;--muted:#627080;--edge:#dce2e8;--accent:#a12633;--red:#a12c3b;--amber:#936113;--new:#176c46;--shadow:0 4px 20px #1824330a}
+@media(prefers-color-scheme:dark){:root{--bg:#111821;--surface:#1b2530;--ink:#edf2f8;--muted:#a7b4c2;--edge:#384553;--accent:#f08b92;--red:#ff9ca8;--amber:#f2c274;--new:#80dfa9;--shadow:0 4px 24px #0003}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1360px;margin:auto;padding:34px 24px 72px}.eyebrow{letter-spacing:.13em;text-transform:uppercase;font-size:12px;font-weight:800;color:var(--accent)}
+h1{font-size:clamp(30px,4vw,48px);line-height:1.12;letter-spacing:-.035em;margin:8px 0 12px}h2{font-size:20px;margin:0 0 12px}.intro{margin:0;color:var(--muted)}.status{margin:15px 0 0;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:28px 0}.tile{background:var(--surface);border:1px solid var(--edge);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.tile strong{display:block;font-size:32px;line-height:1.2;font-variant-numeric:tabular-nums}.tile span{display:block;margin-top:6px;color:var(--muted);font-size:13px;font-weight:650}
+.toolbar{display:grid;grid-template-columns:2fr repeat(3,minmax(130px,1fr));gap:12px;margin:18px 0}
+label{font-size:12px;font-weight:750;color:var(--muted);display:block;margin-bottom:5px}
+input,select{font:inherit;min-height:43px;padding:9px 12px;width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--edge);border-radius:9px}
+input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.panel{background:var(--surface);border:1px solid var(--edge);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.table-top{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 20px 8px}.small{color:var(--muted);font-size:12px}
+.scroller{width:100%;overflow-x:auto;overscroll-behavior-inline:contain}table{width:100%;min-width:1020px;border-collapse:collapse;text-align:left}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;background:var(--surface);position:sticky;top:0}th,td{padding:16px 13px;vertical-align:top;border-bottom:1px solid var(--edge)}
+th:first-child,td:first-child{padding-left:20px}th:last-child,td:last-child{padding-right:20px}
+tbody tr:last-child td{border-bottom:0}.rank{color:var(--muted);font-variant-numeric:tabular-nums}.issue strong{font-size:14px}.issue p{font-size:12px;color:var(--muted);margin:7px 0 0;max-width:540px}.watch{font-size:12px;margin-top:6px}.ref,.stage{font-size:12px;max-width:170px}
+.pill{display:inline-block;border:1px solid var(--edge);border-radius:999px;font-size:11px;font-weight:750;padding:3px 9px;white-space:nowrap}.construction{border-color:var(--red);color:var(--red)}.business{border-color:var(--amber);color:var(--amber)}.none{color:var(--muted)}.new{color:var(--new);border-color:var(--new);margin-left:8px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;max-width:230px}.chip{border:1px solid var(--edge);border-radius:5px;padding:2px 6px;color:var(--muted);font-size:11px}
+a{color:var(--accent);text-underline-offset:3px;font-weight:650}.banner{padding:13px 17px;background:var(--surface);border:1px solid var(--amber);border-radius:9px;margin:20px 0;color:var(--ink)}
+details{margin-top:24px;background:var(--surface);border:1px solid var(--edge);border-radius:12px;padding:18px 20px}summary{cursor:pointer;font-weight:750}details p,details li{color:var(--muted);font-size:13px}.term-groups{display:grid;grid-template-columns:1fr 1fr;gap:24px}.term-groups h3{font-size:14px}
+#failure{color:var(--red);font-weight:600}.empty{text-align:center;color:var(--muted);padding:38px}
+@media(max-width:800px){main{padding:24px 14px 52px}.stats{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:repeat(2,1fr)}.toolbar>div:first-child{grid-column:1/-1}.term-groups{grid-template-columns:1fr}}
+@media(max-width:400px){.stats{gap:8px}.tile{padding:14px}.tile strong{font-size:27px}}
+</style>
+</head>
+<body><main>
+<header><div class="eyebrow">Burke Construction Group · Legislative intelligence</div><h1>Nevada 2027 BDR Tracker</h1>
+<p class="intro">The Nevada Legislature's 84th Session opens February 1, 2027.</p>
+<p class="status" id="description" aria-live="polite">Loading watchlist…</p></header>
+<div id="stale" class="banner" hidden role="status">Data may be out of date.</div><p id="failure" hidden role="alert"></p>
+<section class="stats" aria-label="Summary statistics">
+<div class="tile"><strong id="total">—</strong><span>Items tracked</span></div>
+<div class="tile"><strong id="construction">—</strong><span>Construction flags</span></div>
+<div class="tile"><strong id="business">—</strong><span>Business-wide flags</span></div>
+<div class="tile"><strong id="recent">—</strong><span>New in latest update</span></div>
+</section>
+<section aria-label="Filters" class="toolbar">
+<div><label for="search">Search issues and matched terms</label><input type="search" id="search" placeholder="Search title, summary, reference, watch note…" autocomplete="off"></div>
+<div><label for="stage">Stage</label><select id="stage"><option value="">All stages</option></select></div>
+<div><label for="flag">Flag</label><select id="flag"><option value="">All flags</option><option value="Construction">Construction</option><option value="Business-wide">Business-wide</option><option value="None">Not flagged</option></select></div>
+<div><label for="sort">Sort by</label><select id="sort"><option value="rank">Memo priority</option><option value="flags">Flag level</option><option value="newest">Newest first</option></select></div>
+</section>
+<section class="panel" aria-label="Tracked legislation"><div class="table-top"><h2>Legislative issues</h2><span class="small" id="showing"></span></div>
+<div class="scroller" role="region" aria-label="Scrollable legislative issues table" tabindex="0"><table><thead><tr>
+<th scope="col">#</th><th scope="col">Issue</th><th scope="col">Reference</th><th scope="col">Stage</th><th scope="col">Flag</th><th scope="col">Matched terms</th><th scope="col">Link</th>
+</tr></thead><tbody id="rows"><tr><td colspan="7">Loading…</td></tr></tbody></table></div></section>
+<details><summary>How flagging works</summary>
+<p>Only the issue's title, summary, reference and “Watch for” note are checked. Each pattern is case-insensitive and must begin at a word boundary; it may continue into a longer word (for example, “abatement” matches “abatements”). The first qualifying match of each watchlist term counts once.</p>
+<p>If any Core construction term matches, the issue is flagged <strong>Construction</strong>. Otherwise, if a Business-wide term matches, the flag is <strong>Business-wide</strong>. Otherwise it is <strong>Not flagged</strong>. “New” means the item's date_added is the latest date_added across all tracked items. Flag counts represent issues, not the total number of matching terms.</p>
+<div id="term-groups" class="term-groups"></div></details>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const escapePattern=p=>p.replace(/[.*+?^$()|[\]{}\\]/g,"\\$&");
+const termsFor=(item,list)=>{
+ const haystack=[item.title,item.summary,item.reference,item.watch_for].filter(Boolean).join(" ");
+ return list.filter(term=>term.patterns.split(";").map(x=>x.trim()).filter(Boolean).some(pattern=>new RegExp("\\b"+escapePattern(pattern),"i").test(haystack)));
+};
+const classFor=t=>t==="Construction"?"construction":t==="Business-wide"?"business":"none";
+let enriched=[];
+let latest="";
+function text(tag,value,className){const el=document.createElement(tag);el.textContent=value;if(className)el.className=className;return el}
+function pill(value,css){const el=text("span",value,"pill "+css);return el}
+function show(){
+ const q=$("search").value.trim().toLowerCase(),stage=$("stage").value,flag=$("flag").value,sort=$("sort").value;
+ const visible=enriched.filter(o=>(!stage||o.stage===stage)&&(!flag||o.flag===flag)&&(!q||[o.title,o.summary,o.reference,o.watch_for,o.stage,...o.matches.map(t=>t.term)].join(" ").toLowerCase().includes(q)));
+ const weight=o=>o.flag==="Construction"?0:o.flag==="Business-wide"?1:2;
+ visible.sort((a,b)=>sort==="newest"?(b.date_added||"").localeCompare(a.date_added||"")||a.rank-b.rank:sort==="flags"?weight(a)-weight(b)||b.matches.length-a.matches.length||a.rank-b.rank:a.rank-b.rank);
+ $("showing").textContent=visible.length+" of "+enriched.length+" items";
+ const tbody=$("rows");tbody.replaceChildren();
+ if(!visible.length){const tr=document.createElement("tr"),td=text("td","No issues match these filters.","empty");td.colSpan=7;tr.append(td);tbody.append(tr);return}
+ const frag=document.createDocumentFragment();
+ for(const o of visible){
+ const tr=document.createElement("tr");
+ tr.append(text("td",String(o.rank).padStart(2,"0"),"rank"));
+ const issue=document.createElement("td");issue.className="issue";issue.append(text("strong",o.title));
+ if(o.date_added===latest)issue.append(pill("New","new"));
+ issue.append(text("p",o.summary||"No summary published."));const watch=document.createElement("div");watch.className="watch";watch.append(text("strong","Watch for: "));watch.append(document.createTextNode(o.watch_for||"No watch note yet."));issue.append(watch);tr.append(issue);
+ tr.append(text("td",o.reference||"—","ref"),text("td",o.stage||"—","stage"));
+ const flagTd=document.createElement("td");flagTd.append(pill(o.flag==="None"?"Not flagged":o.flag,classFor(o.flag)));tr.append(flagTd);
+ const matched=document.createElement("td"),chips=document.createElement("div");chips.className="chips";if(!o.matches.length)chips.append(text("span","—","small"));o.matches.forEach(t=>chips.append(text("span",t.term,"chip")));matched.append(chips);tr.append(matched);
+ const linkTd=document.createElement("td");if(/^https:\/\//.test(o.link||"")){const a=document.createElement("a");a.href=o.link;a.target="_blank";a.rel="noopener noreferrer";a.textContent=o.link_label||"Source";linkTd.append(a)}else linkTd.textContent="—";tr.append(linkTd);frag.append(tr);
+ }tbody.append(frag);
+}
+async function load(){
+ try{
+ const [br,wr,mr]=await Promise.all([fetch("data/bdrs.json",{cache:"no-store"}),fetch("data/watchlist.json",{cache:"no-store"}),fetch("data/meta.json",{cache:"no-store"})]);
+ if(!br.ok||!wr.ok||!mr.ok)throw Error("One or more data files could not be loaded.");
+ const [items,watchlist,meta]=await Promise.all([br.json(),wr.json(),mr.json()]);
+ if(!Array.isArray(items)||!Array.isArray(watchlist))throw Error("Invalid dashboard data.");
+ latest=items.reduce((a,b)=>b.date_added>a?b.date_added:a,"");
+ enriched=items.map(o=>{const matches=termsFor(o,watchlist),flag=matches.some(x=>x.tier==="Core construction")?"Construction":matches.length?"Business-wide":"None";return {...o,matches,flag}});
+ const nc=enriched.filter(o=>o.flag==="Construction").length,nb=enriched.filter(o=>o.flag==="Business-wide").length,nn=enriched.filter(o=>o.date_added===latest).length;
+ $("total").textContent=enriched.length;$("construction").textContent=nc;$("business").textContent=nb;$("recent").textContent=nn;
+ $("description").textContent="Tracking "+enriched.length+" items. "+nc+" match core construction terms and "+nb+" match business-wide terms. "+nn+" came in with the latest update, "+(latest||"unknown")+".";
+ [...new Set(enriched.map(x=>x.stage))].sort().forEach(s=>{const op=document.createElement("option");op.value=s;op.textContent=s;$("stage").append(op)});
+ const groups=$("term-groups");for(const tier of ["Core construction","Business-wide"]){const sec=document.createElement("section");sec.append(text("h3",tier));const ul=document.createElement("ul");watchlist.filter(t=>t.tier===tier).forEach(t=>ul.append(text("li",t.term+" — "+t.patterns)));sec.append(ul);groups.append(sec)}
+ const updated=new Date(String(meta.last_updated)+"T00:00:00Z"),days=(Date.now()-updated.getTime())/86400000;
+ $("stale").hidden=!(Number.isFinite(days)&&days>8)||Number.isNaN(days);if(Number.isNaN(days))$("stale").hidden=false;
+ show();
+ }catch(err){$("failure").hidden=false;$("failure").textContent="Unable to load dashboard data: "+err.message;$("rows").replaceChildren(text("tr",""))}
+}
+for(const id of ["search","stage","flag","sort"])$(id).addEventListener(id==="search"?"input":"change",show);
+load();
+</script></body></html>
