@@ -1,0 +1,65 @@
+name: Weekly Nevada BDR update and Pages deployment
+on:
+  schedule:
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "data/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/weekly.yml"
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: nevada-bdr-update-pages
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run weekly importer
+        if: github.event_name != 'push'
+        env:
+          LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
+        run: python scripts/update.py
+      - name: Commit only changed data
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain -- data/)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/
+            git commit -m "chore: refresh Nevada 2027 legislative data"
+            git push
+          else
+            echo "No data changes"
+          fi
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - uses: actions/deploy-pages@v4
+        id: deployment
